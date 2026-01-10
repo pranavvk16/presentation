@@ -11,7 +11,6 @@ export const slide10: SlideData = {
         src: `${SCREENSHOT_BASE}/department-additon.png`,
         alt: 'Employee Directory',
         url: 'www.employeenest.com/tenant/infosys/employees',
-        label: 'Departments View',
     },
     screenshot2: {
         src: `${SCREENSHOT_BASE}/org-additon.png`,

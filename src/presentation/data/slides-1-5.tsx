@@ -37,7 +37,6 @@ export const slide2: SlideData = {
         src: `${SCREENSHOT_BASE}/New-Employee-Account-Setup.png`,
         alt: 'Setup Account Page',
         url: 'www.employeenest.com/tenant/amazon/setup-account',
-        label: 'Token Validation State',
     },
     talkingPoints: {
         title: 'Key Talking Points',

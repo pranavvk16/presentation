@@ -30,12 +30,12 @@ const allSlides = [
 
 // Title slide data
 const titleSlideData = {
-    title: 'Client Portal Presentation',
-    subtitle: '12-Slide Walkthrough for Stakeholders — Highlighting the end-to-end user experience, core user paths, and key features',
+    title: 'EmployeeNest',
+    subtitle: 'Complete HR management platform — Streamline attendance, leaves, payroll, and employee operations in one unified solution',
     metaItems: [
-        { icon: '📊', text: '12 Slides' },
-        { icon: '👥', text: 'For Stakeholders' },
-        { icon: '🎯', text: 'End-to-End Experience' },
+        { icon: '📊', text: '12 Features' },
+        { icon: '🏢', text: 'Enterprise Ready' },
+        { icon: '✨', text: 'All-in-One HR' },
     ],
     flowSteps: ['Login', 'Dashboard', 'Employees', 'Attendance', 'Leaves', 'Payroll', 'Settings'],
 };
@@ -54,24 +54,24 @@ export default function PresentationPage() {
                 <Slide key={slideData.number} data={slideData} />
             ))}
 
-            {/* Slide 11: Summary & Thank You - Enhanced Design */}
+            {/* Summary & Thank You */}
             <section className="pres-slide pres-summary-slide">
                 <div className="pres-slide-content">
                     {/* Hero Section */}
                     <div className="pres-summary-hero">
-                        <div className="pres-summary-icon">✨</div>
-                        <h1 className="pres-summary-title">Transform Your HR Operations</h1>
+                        <div className="pres-summary-icon">🏢</div>
+                        <h1 className="pres-summary-title">Ready to Streamline Your HR?</h1>
                         <p className="pres-summary-subtitle">
-                            Employee Nest delivers a complete, modern HR management experience
+                            EmployeeNest unifies attendance, leaves, payroll, and employee management into one seamless platform
                         </p>
                     </div>
 
-                    {/* Core Features Row - 3 cards matching actual app features */}
+                    {/* Core Features Row */}
                     <div className="pres-stats-row pres-stats-3col">
                         <div className="pres-stat-card">
                             <div className="pres-stat-icon">⏱️</div>
                             <div className="pres-stat-value">Attendance</div>
-                            <div className="pres-stat-label">Punch In/Out • Calendar • Regularization</div>
+                            <div className="pres-stat-label">Punch • Calendar • Regularization</div>
                         </div>
                         <div className="pres-stat-card">
                             <div className="pres-stat-icon">📅</div>
@@ -79,41 +79,41 @@ export default function PresentationPage() {
                             <div className="pres-stat-label">Apply • Track • Approve</div>
                         </div>
                         <div className="pres-stat-card">
-                            <div className="pres-stat-icon">⚙️</div>
-                            <div className="pres-stat-value">Settings</div>
-                            <div className="pres-stat-label">Theme • Regional • Profile</div>
+                            <div className="pres-stat-icon">💰</div>
+                            <div className="pres-stat-value">Payroll</div>
+                            <div className="pres-stat-label">Process • Generate • Distribute</div>
                         </div>
                     </div>
 
-                    {/* Key Highlights - Features actually in the app */}
+                    {/* Key Highlights */}
                     <div className="pres-highlights-grid">
                         <div className="pres-highlight-card">
                             <div className="pres-highlight-icon">🔐</div>
-                            <h3>Secure Login</h3>
-                            <p>Branded per-tenant authentication with token validation</p>
+                            <h3>Secure Access</h3>
+                            <p>Multi-tenant authentication with role-based permissions</p>
                         </div>
                         <div className="pres-highlight-card">
                             <div className="pres-highlight-icon">📊</div>
-                            <h3>Dashboard</h3>
-                            <p>Organization stats, quick actions & team overview</p>
+                            <h3>Real-time Dashboard</h3>
+                            <p>Organization stats and quick actions at a glance</p>
                         </div>
                         <div className="pres-highlight-card">
-                            <div className="pres-highlight-icon">🔄</div>
-                            <h3>Self-Service</h3>
-                            <p>Employees manage attendance & leaves independently</p>
+                            <div className="pres-highlight-icon">👤</div>
+                            <h3>Self-Service Portal</h3>
+                            <p>Employees manage their own attendance and leaves</p>
                         </div>
                         <div className="pres-highlight-card">
-                            <div className="pres-highlight-icon">🌙</div>
-                            <h3>Customization</h3>
-                            <p>Dark/Light theme, date formats & preferences</p>
+                            <div className="pres-highlight-icon">⚙️</div>
+                            <h3>Customizable</h3>
+                            <p>Themes, regional settings, and preferences</p>
                         </div>
                     </div>
 
                     {/* CTA Section */}
                     <div className="pres-cta-section">
                         <div className="pres-cta-content">
-                            <h2>Thank You!</h2>
-                            <p>Questions? Let&apos;s discuss how Employee Nest can help your organization.</p>
+                            <h2>Thank You</h2>
+                            <p>Questions? Let&apos;s discuss how EmployeeNest can help your organization.</p>
                             <div className="pres-cta-url">
                                 <span className="pres-url-icon">🌐</span>
                                 <span className="pres-url-text">www.employeenest.com</span>

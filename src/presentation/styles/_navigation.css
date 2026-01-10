@@ -1,0 +1,173 @@
+/* ====================== */
+/* Navigation Bar Styles  */
+/* Premium Dark Header    */
+/* ====================== */
+
+.pres-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0.875rem 2.5rem;
+    background: var(--en-slate);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--en-shadow-md);
+}
+
+/* Brand */
+.pres-nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pres-nav-logo {
+    width: 36px;
+    height: 36px;
+    background: var(--en-primary);
+    border-radius: var(--en-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    color: var(--en-slate-dark);
+    letter-spacing: -0.02em;
+}
+
+.pres-nav-title {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--en-text-inverse);
+    letter-spacing: 0.01em;
+}
+
+/* Play Container */
+.pres-nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pres-play-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.pres-play-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--en-radius-sm);
+    border: 1px solid var(--en-primary);
+    background: var(--en-primary);
+    color: var(--en-slate-dark);
+    font-family: inherit;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--en-transition);
+}
+
+.pres-play-btn:hover {
+    background: var(--en-primary-light);
+    border-color: var(--en-primary-light);
+    transform: translateY(-1px);
+}
+
+.pres-play-btn.playing {
+    background: transparent;
+    border-color: var(--en-primary);
+    color: var(--en-primary);
+}
+
+.play-icon {
+    font-size: 0.75rem;
+}
+
+.play-text {
+    font-weight: 600;
+}
+
+/* Progress Bar */
+.pres-progress-bar {
+    width: 140px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.pres-progress-fill {
+    height: 100%;
+    background: var(--en-primary);
+    transition: width 0.05s linear;
+}
+
+/* Controls */
+.pres-nav-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.pres-nav-btn {
+    padding: 0.5rem 0.875rem;
+    border-radius: var(--en-radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    font-family: inherit;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--en-transition);
+}
+
+.pres-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--en-text-inverse);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.pres-slide-counter {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.6);
+    min-width: 52px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.pres-fullscreen-btn,
+.pres-help-btn {
+    padding: 0.5rem 0.625rem;
+    font-size: 0.9375rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pres-nav {
+        padding: 0.75rem 1rem;
+    }
+
+    .pres-nav-title {
+        display: none;
+    }
+
+    .pres-play-btn {
+        padding: 0.4375rem 0.75rem;
+    }
+
+    .play-text {
+        display: none;
+    }
+}

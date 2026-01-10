@@ -9,7 +9,29 @@ interface PresentationLayoutProps {
 
 export function PresentationLayout({ children, totalSlides }: PresentationLayoutProps) {
     const [currentSlide, setCurrentSlide] = useState(1);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [progress, setProgress] = useState(0);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+    const [showGuide, setShowGuide] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+    const presentationContainerRef = useRef<HTMLDivElement>(null);
+
+    // Check if first time visitor
+    useEffect(() => {
+        const hasSeenGuide = localStorage.getItem('employeenest-pres-guide-seen');
+        if (!hasSeenGuide) {
+            setShowGuide(true);
+        }
+    }, []);
+
+    const closeGuide = useCallback(() => {
+        setShowGuide(false);
+        localStorage.setItem('employeenest-pres-guide-seen', 'true');
+    }, []);
+
+    const openGuide = useCallback(() => {
+        setShowGuide(true);
+    }, []);
 
     const updateCounter = useCallback(() => {
         if (containerRef.current) {
@@ -38,8 +60,90 @@ export function PresentationLayout({ children, totalSlides }: PresentationLayout
         goToSlide(currentSlide - 2);
     }, [currentSlide, goToSlide]);
 
+    // Auto-play functionality
+    const togglePlay = useCallback(() => {
+        setIsPlaying(prev => !prev);
+        setProgress(0); // Reset progress when toggling
+    }, []);
+
+    // Fullscreen functionality
+    const toggleFullscreen = useCallback(() => {
+        if (!document.fullscreenElement) {
+            presentationContainerRef.current?.requestFullscreen();
+            setIsFullscreen(true);
+        } else {
+            document.exitFullscreen();
+            setIsFullscreen(false);
+        }
+    }, []);
+
+    // Listen for fullscreen changes
+    useEffect(() => {
+        const handleFullscreenChange = () => {
+            setIsFullscreen(!!document.fullscreenElement);
+        };
+
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    }, []);
+
+    // Auto-advance when playing
+    useEffect(() => {
+        if (isPlaying) {
+            const slideDuration = 10000; // 10 seconds per slide
+            let startTime = Date.now();
+            let animationFrameId: number;
+
+            const updateProgress = () => {
+                const elapsed = Date.now() - startTime;
+                const progressPercent = (elapsed / slideDuration) * 100;
+
+                if (progressPercent >= 100) {
+                    // Time to advance to next slide
+                    setProgress(0);
+                    startTime = Date.now(); // Reset timer
+
+                    setCurrentSlide(prev => {
+                        // If we're at the last slide, stop playing and reset to first slide
+                        if (prev >= totalSlides) {
+                            setIsPlaying(false);
+                            goToSlide(0);
+                            return 1;
+                        }
+                        // Otherwise go to next slide
+                        goToSlide(prev);
+                        return prev + 1;
+                    });
+                } else {
+                    setProgress(progressPercent);
+                }
+
+                // Continue animation loop
+                animationFrameId = requestAnimationFrame(updateProgress);
+            };
+
+            // Start the animation loop
+            animationFrameId = requestAnimationFrame(updateProgress);
+
+            return () => {
+                cancelAnimationFrame(animationFrameId);
+            };
+        } else {
+            setProgress(0);
+        }
+    }, [isPlaying, totalSlides, goToSlide]);
+
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
+            // Pause auto-play when user manually navigates
+            if (isPlaying && (
+                e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown' ||
+                e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp' ||
+                e.key === 'Home' || e.key === 'End' || e.key === ' '
+            )) {
+                setIsPlaying(false);
+            }
+
             if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
                 e.preventDefault();
                 nextSlide();
@@ -57,20 +161,136 @@ export function PresentationLayout({ children, totalSlides }: PresentationLayout
 
         document.addEventListener('keydown', handleKeyDown);
         return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [nextSlide, prevSlide, goToSlide, totalSlides]);
+    }, [nextSlide, prevSlide, goToSlide, totalSlides, isPlaying]);
+
+    const handlePrevSlide = useCallback(() => {
+        setIsPlaying(false); // Pause when manually navigating
+        prevSlide();
+    }, [prevSlide]);
+
+    const handleNextSlide = useCallback(() => {
+        setIsPlaying(false); // Pause when manually navigating
+        nextSlide();
+    }, [nextSlide]);
 
     return (
-        <div className="presentation-container">
+        <div className="presentation-container" ref={presentationContainerRef}>
+            {/* User Guide Modal */}
+            {showGuide && (
+                <div className="pres-guide-overlay">
+                    <div className="pres-guide-modal">
+                        <div className="pres-guide-header">
+                            <div className="pres-guide-logo">
+                                <span className="pres-guide-logo-icon">🏢</span>
+                                <span className="pres-guide-logo-text">EmployeeNest</span>
+                            </div>
+                            <h2>Welcome to the Product Walkthrough</h2>
+                            <p>Your complete guide to our all-in-one HR solution</p>
+                        </div>
+
+                        <div className="pres-guide-content">
+                            <h3>How to Navigate</h3>
+                            <div className="pres-guide-controls">
+                                <div className="pres-guide-item">
+                                    <span className="pres-guide-key">← →</span>
+                                    <span>Arrow keys to navigate</span>
+                                </div>
+                                <div className="pres-guide-item">
+                                    <span className="pres-guide-key">▶ Play</span>
+                                    <span>Auto-advance slides</span>
+                                </div>
+                                <div className="pres-guide-item">
+                                    <span className="pres-guide-key">⛶</span>
+                                    <span>Fullscreen mode</span>
+                                </div>
+                                <div className="pres-guide-item">
+                                    <span className="pres-guide-key">Click</span>
+                                    <span>Use Prev/Next buttons</span>
+                                </div>
+                            </div>
+
+                            <div className="pres-guide-features">
+                                <h4>What You&apos;ll See</h4>
+                                <ul>
+                                    <li>Complete attendance management workflow</li>
+                                    <li>Leave application &amp; approval process</li>
+                                    <li>Payroll &amp; payslip generation</li>
+                                    <li>Employee self-service portal</li>
+                                </ul>
+                            </div>
+
+                            <div className="pres-guide-zoom">
+                                <h4>💡 Display Tip</h4>
+                                <p>
+                                    Adjust your browser zoom (Ctrl/Cmd + or -) for the best viewing experience.
+                                    We recommend 80-100% zoom depending on your screen size.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="pres-guide-footer">
+                            <button className="pres-guide-start" onClick={closeGuide}>
+                                Start Presentation
+                            </button>
+                            <span className="pres-guide-hint">Press ? anytime to see this guide</span>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Navigation */}
             <nav className="pres-nav">
                 <div className="pres-nav-brand">
-                    <div className="pres-nav-logo">CP</div>
-                    <span className="pres-nav-title">Client Portal</span>
+                    <div className="pres-nav-logo">EN</div>
+                    <span className="pres-nav-title">EmployeeNest</span>
+                </div>
+                <div className="pres-nav-center">
+                    <div className="pres-play-container">
+                        <button
+                            className={`pres-play-btn ${isPlaying ? 'playing' : ''}`}
+                            onClick={togglePlay}
+                            title={isPlaying ? 'Pause' : 'Auto-play'}
+                        >
+                            {isPlaying ? (
+                                <>
+                                    <span className="play-icon">⏸</span>
+                                    <span className="play-text">Pause</span>
+                                </>
+                            ) : (
+                                <>
+                                    <span className="play-icon">▶</span>
+                                    <span className="play-text">Play</span>
+                                </>
+                            )}
+                        </button>
+                        {isPlaying && (
+                            <div className="pres-progress-bar">
+                                <div
+                                    className="pres-progress-fill"
+                                    style={{ width: `${progress}%` }}
+                                ></div>
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <div className="pres-nav-controls">
-                    <button className="pres-nav-btn" onClick={prevSlide}>← Prev</button>
+                    <button className="pres-nav-btn" onClick={handlePrevSlide}>← Prev</button>
                     <span className="pres-slide-counter">{currentSlide} / {totalSlides}</span>
-                    <button className="pres-nav-btn" onClick={nextSlide}>Next →</button>
+                    <button className="pres-nav-btn" onClick={handleNextSlide}>Next →</button>
+                    <button
+                        className="pres-nav-btn pres-fullscreen-btn"
+                        onClick={toggleFullscreen}
+                        title={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+                    >
+                        ⛶
+                    </button>
+                    <button
+                        className="pres-nav-btn pres-help-btn"
+                        onClick={openGuide}
+                        title="View Guide"
+                    >
+                        ?
+                    </button>
                 </div>
             </nav>
 

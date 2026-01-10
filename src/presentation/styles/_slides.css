@@ -1,0 +1,457 @@
+/* ===================== */
+/* Slide Content Styles  */
+/* Premium & Engaging    */
+/* ===================== */
+
+/* Title Slide */
+.pres-title-slide {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: var(--en-slate);
+}
+
+.pres-title-slide::before {
+    display: none;
+}
+
+.pres-title-slide .pres-slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 2rem;
+}
+
+.pres-main-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--en-text-inverse);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pres-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+    max-width: 580px;
+    line-height: 1.6;
+}
+
+.pres-title-meta {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.pres-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.pres-meta-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--en-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9375rem;
+}
+
+/* Flow Diagram */
+.pres-flow-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--en-radius-lg);
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.pres-flow-step {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: var(--en-radius-sm);
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--en-text-inverse);
+    transition: all var(--en-transition);
+}
+
+.pres-flow-step:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.pres-flow-step.active {
+    background: var(--en-primary);
+    color: var(--en-slate-dark);
+}
+
+.pres-flow-arrow {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.875rem;
+}
+
+/* Regular Slide Header */
+.pres-slide-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--en-border);
+}
+
+.pres-slide-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--en-slate);
+    border-radius: var(--en-radius-sm);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    margin-bottom: 0.75rem;
+    color: var(--en-text-inverse);
+}
+
+.pres-slide-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.375rem;
+    color: var(--en-text-primary);
+    letter-spacing: -0.02em;
+}
+
+.pres-slide-subtitle {
+    font-size: 1rem;
+    color: var(--en-text-secondary);
+    font-weight: 400;
+}
+
+/* Content Grid */
+.pres-content-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    margin-top: 0.5rem;
+    align-items: start;
+}
+
+.pres-content-grid.reverse {
+    grid-template-columns: 0.9fr 1.1fr;
+    direction: rtl;
+}
+
+.pres-content-grid.reverse>* {
+    direction: ltr;
+}
+
+/* Screenshot Container - Premium Card */
+.pres-screenshot-container {
+    background: var(--en-bg-surface);
+    border-radius: var(--en-radius-lg);
+    padding: 1rem;
+    box-shadow: var(--en-shadow-lg);
+    border: 1px solid var(--en-border);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--en-transition-slow);
+}
+
+.pres-screenshot-container:hover {
+    box-shadow: var(--en-shadow-xl);
+    transform: translateY(-2px);
+}
+
+/* Top accent bar */
+.pres-screenshot-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--en-slate) 0%, var(--en-primary) 100%);
+}
+
+.pres-browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.625rem;
+    background: var(--en-bg-muted);
+    border-radius: var(--en-radius-sm);
+    margin-bottom: 0.625rem;
+}
+
+.pres-browser-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.pres-browser-dot.red {
+    background: #ef4444;
+}
+
+.pres-browser-dot.yellow {
+    background: #f59e0b;
+}
+
+.pres-browser-dot.green {
+    background: #22c55e;
+}
+
+.pres-browser-url {
+    flex: 1;
+    background: var(--en-bg-surface);
+    border: 1px solid var(--en-border);
+    border-radius: var(--en-radius-sm);
+    padding: 0.375rem 0.625rem;
+    font-size: 0.6875rem;
+    color: var(--en-text-muted);
+    font-family: 'SF Mono', Monaco, monospace;
+    margin-left: 0.5rem;
+}
+
+.pres-screenshot {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: var(--en-radius-md);
+    display: block;
+    background: var(--en-bg-muted);
+}
+
+.pres-screenshot-label {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    background: var(--en-slate);
+    padding: 0.5rem 1rem;
+    border-radius: var(--en-radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--en-text-inverse);
+}
+
+/* Info Panel - Better Spacing */
+.pres-info-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pres-info-section {
+    background: var(--en-bg-surface);
+    border-radius: var(--en-radius-md);
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--en-border);
+    box-shadow: var(--en-shadow-sm);
+    transition: all var(--en-transition);
+}
+
+.pres-info-section:hover {
+    border-color: var(--en-border-dark);
+    box-shadow: var(--en-shadow-md);
+}
+
+.pres-info-section h3 {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--en-slate);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pres-info-section h3::before {
+    content: '';
+    width: 3px;
+    height: 14px;
+    background: var(--en-primary);
+    border-radius: 2px;
+}
+
+.pres-info-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0;
+    margin: 0;
+}
+
+.pres-info-section li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    color: var(--en-text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.pres-info-section li::before {
+    content: '→';
+    color: var(--en-primary);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.pres-value-box {
+    background: linear-gradient(135deg, rgba(201, 169, 98, 0.06) 0%, rgba(26, 26, 46, 0.03) 100%);
+    border-color: rgba(201, 169, 98, 0.2);
+}
+
+.pres-value-box h3 {
+    color: var(--en-primary-dark);
+}
+
+.pres-value-box h3::before {
+    background: linear-gradient(135deg, var(--en-primary) 0%, var(--en-slate) 100%);
+}
+
+/* Feature Cards - Grid Layout */
+.pres-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.pres-feature-card {
+    background: var(--en-bg-surface);
+    border: 1px solid var(--en-border);
+    border-radius: var(--en-radius-md);
+    padding: 1rem 0.75rem;
+    text-align: center;
+    transition: all var(--en-transition);
+    cursor: default;
+}
+
+.pres-feature-card:hover {
+    border-color: var(--en-slate);
+    box-shadow: var(--en-shadow-md);
+    transform: translateY(-2px);
+}
+
+.pres-feature-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 0.5rem;
+    background: linear-gradient(135deg, var(--en-bg-muted) 0%, var(--en-bg-elevated) 100%);
+    border-radius: var(--en-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.pres-feature-card h4 {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--en-text-primary);
+}
+
+.pres-feature-card p {
+    font-size: 0.6875rem;
+    color: var(--en-text-muted);
+    margin: 0;
+}
+
+/* Multi Screenshot */
+.pres-multi-screenshot {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pres-multi-screenshot .pres-screenshot-container {
+    padding: 0.75rem;
+}
+
+.pres-multi-screenshot .pres-screenshot {
+    max-height: 200px;
+}
+
+/* Color Legend for Calendar */
+.pres-color-legend {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.pres-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--en-text-secondary);
+}
+
+.pres-legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .pres-content-grid {
+        gap: 2rem;
+    }
+
+    .pres-main-title {
+        font-size: 2.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .pres-content-grid,
+    .pres-content-grid.reverse {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        direction: ltr;
+    }
+
+    .pres-main-title {
+        font-size: 2rem;
+    }
+
+    .pres-slide-title {
+        font-size: 1.5rem;
+    }
+
+    .pres-title-meta {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .pres-flow-diagram {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .pres-flow-arrow {
+        transform: rotate(90deg);
+    }
+}

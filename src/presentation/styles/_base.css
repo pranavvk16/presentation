@@ -1,0 +1,129 @@
+/* ======================== */
+/* Base Styles & Container  */
+/* Premium Dark Theme       */
+/* ======================== */
+
+.presentation-container {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--en-bg-page);
+    color: var(--en-text-primary);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.presentation-container *,
+.presentation-container *::before,
+.presentation-container *::after {
+    box-sizing: border-box;
+}
+
+/* Slides Container */
+.pres-slides-container {
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pres-slides-container::-webkit-scrollbar {
+    display: none;
+}
+
+.pres-slides-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Individual Slide */
+.pres-slide {
+    min-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    scroll-snap-align: start;
+    padding: 5.5rem 5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: var(--en-bg-page);
+}
+
+/* Subtle background pattern for visual interest */
+.pres-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(26, 26, 46, 0.02) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(201, 169, 98, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+/* Decorative corner accent */
+.pres-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, transparent 50%, rgba(26, 26, 46, 0.02) 50%);
+    pointer-events: none;
+}
+
+.pres-slide-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .pres-slide {
+        padding: 5rem 3rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .pres-slide {
+        padding: 4.5rem 1.5rem 1.5rem;
+    }
+}

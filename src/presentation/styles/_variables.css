@@ -1,0 +1,61 @@
+/* ================================= */
+/* EmployeeNest Premium Design Tokens */
+/* Dark Slate + Gold Primary Theme   */
+/* ================================= */
+
+:root {
+    /* Dark Slate - Base Color */
+    --en-slate: #1a1b1a;
+    --en-slate-dark: #121212;
+    --en-slate-light: #2c2d2c;
+
+    /* Gold - Primary Action Color */
+    --en-primary: #c9a962;
+    --en-primary-dark: #a88b4a;
+    --en-primary-light: #dfc386;
+
+    /* Surface Colors */
+    --en-bg-page: #fafafa;
+    --en-bg-surface: #ffffff;
+    --en-bg-muted: #f4f4f5;
+    --en-bg-elevated: #e4e4e7;
+
+    /* Text Colors */
+    --en-text-primary: #18181b;
+    --en-text-secondary: #52525b;
+    --en-text-muted: #a1a1aa;
+    --en-text-inverse: #ffffff;
+
+    /* Borders */
+    --en-border: #e4e4e7;
+    --en-border-dark: #d4d4d8;
+
+    /* Shadows */
+    --en-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --en-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --en-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+    --en-shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.15);
+
+    /* Status */
+    --en-success: #16a34a;
+    --en-info: #2563eb;
+
+    /* Spacing */
+    --en-space-xs: 0.25rem;
+    --en-space-sm: 0.5rem;
+    --en-space-md: 1rem;
+    --en-space-lg: 1.5rem;
+    --en-space-xl: 2rem;
+    --en-space-2xl: 3rem;
+
+    /* Border Radius */
+    --en-radius-sm: 6px;
+    --en-radius-md: 10px;
+    --en-radius-lg: 16px;
+    --en-radius-xl: 24px;
+
+    /* Transitions */
+    --en-transition-fast: 0.1s ease;
+    --en-transition: 0.2s ease;
+    --en-transition-slow: 0.3s ease;
+}

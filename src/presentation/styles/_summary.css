@@ -1,0 +1,317 @@
+/* ===================== */
+/* Summary Slide Styles  */
+/* Premium Finish        */
+/* ===================== */
+
+.pres-summary-slide {
+    background: var(--en-bg-page);
+}
+
+.pres-summary-slide::before {
+    display: none;
+}
+
+.pres-summary-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+}
+
+.pres-summary-icon {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+}
+
+.pres-summary-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--en-slate);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.pres-summary-subtitle {
+    font-size: 1.0625rem;
+    color: var(--en-text-secondary);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Stats Row */
+.pres-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.pres-stats-row.pres-stats-3col {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.pres-stat-card {
+    background: var(--en-bg-surface);
+    border-radius: var(--en-radius-lg);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border: 1px solid var(--en-border);
+    box-shadow: var(--en-shadow-md);
+    transition: all var(--en-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.pres-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--en-slate) 0%, var(--en-primary) 100%);
+    opacity: 0;
+    transition: opacity var(--en-transition);
+}
+
+.pres-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--en-shadow-lg);
+}
+
+.pres-stat-card:hover::before {
+    opacity: 1;
+}
+
+.pres-stat-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.pres-stat-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--en-text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.pres-stat-label {
+    font-size: 0.75rem;
+    color: var(--en-text-muted);
+}
+
+/* Highlights Grid */
+.pres-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.875rem;
+    margin-bottom: 1.5rem;
+}
+
+.pres-highlight-card {
+    background: var(--en-bg-surface);
+    border: 1px solid var(--en-border);
+    border-radius: var(--en-radius-md);
+    padding: 1.25rem 1rem;
+    text-align: center;
+    box-shadow: var(--en-shadow-sm);
+    transition: all var(--en-transition);
+}
+
+.pres-highlight-card:hover {
+    border-color: var(--en-slate);
+    box-shadow: var(--en-shadow-md);
+    transform: translateY(-2px);
+}
+
+.pres-highlight-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.pres-highlight-card h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--en-text-primary);
+    margin-bottom: 0.375rem;
+}
+
+.pres-highlight-card p {
+    font-size: 0.75rem;
+    color: var(--en-text-secondary);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* CTA Section */
+.pres-cta-section {
+    background: var(--en-slate);
+    border-radius: var(--en-radius-xl);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--en-shadow-lg);
+}
+
+.pres-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(201, 169, 98, 0.1) 100%);
+    pointer-events: none;
+}
+
+.pres-cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.pres-cta-content h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--en-text-inverse);
+    margin-bottom: 0.5rem;
+}
+
+.pres-cta-content p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 1.25rem;
+}
+
+.pres-cta-url {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    background: var(--en-primary);
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    transition: all var(--en-transition);
+}
+
+.pres-cta-url:hover {
+    background: var(--en-primary-light);
+    transform: translateY(-1px);
+}
+
+.pres-url-icon {
+    font-size: 1.0625rem;
+}
+
+.pres-url-text {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--en-slate-dark);
+    letter-spacing: 0.01em;
+}
+
+/* Journey Diagram */
+.pres-journey-container {
+    margin-top: 1.5rem;
+}
+
+.pres-journey-phase {
+    display: flex;
+    align-items: stretch;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.pres-phase-header {
+    min-width: 130px;
+    background: var(--en-slate);
+    border-radius: var(--en-radius-md);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: var(--en-text-inverse);
+}
+
+.pres-phase-number {
+    font-size: 0.6875rem;
+    opacity: 0.7;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pres-phase-title {
+    font-weight: 600;
+    font-size: 0.9375rem;
+}
+
+.pres-phase-steps {
+    flex: 1;
+    display: flex;
+    gap: 0.875rem;
+    align-items: center;
+}
+
+.pres-step-box {
+    background: var(--en-bg-surface);
+    border: 1px solid var(--en-border);
+    border-radius: var(--en-radius-md);
+    padding: 1rem 1.25rem;
+    font-size: 0.875rem;
+    flex: 1;
+    text-align: center;
+    color: var(--en-text-secondary);
+    box-shadow: var(--en-shadow-sm);
+    transition: all var(--en-transition);
+}
+
+.pres-step-box:hover {
+    border-color: var(--en-primary);
+    box-shadow: var(--en-shadow-md);
+}
+
+.pres-step-connector {
+    color: var(--en-text-muted);
+    font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+
+    .pres-stats-row,
+    .pres-stats-row.pres-stats-3col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pres-highlights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .pres-stats-row,
+    .pres-stats-row.pres-stats-3col,
+    .pres-highlights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pres-summary-title {
+        font-size: 1.75rem;
+    }
+
+    .pres-journey-phase {
+        flex-direction: column;
+        gap: 0.625rem;
+    }
+
+    .pres-phase-steps {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .pres-cta-section {
+        padding: 2rem 1.5rem;
+    }
+}
