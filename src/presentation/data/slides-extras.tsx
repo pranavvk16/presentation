@@ -68,12 +68,7 @@ export const slidePayroll: SlideData = {
             <><strong>TDS:</strong> Tax Deducted at Source with Form 16</>,
         ],
     },
-    flowSteps: [
-        { text: 'Attendance' },
-        { text: 'Calculate' },
-        { text: 'Deductions' },
-        { text: 'Publish', active: true },
-    ],
+
     valuePoints: [
         'Eliminates manual calculation errors',
         'Statutory compliance built-in',

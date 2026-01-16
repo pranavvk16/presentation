@@ -22,12 +22,7 @@ export const slideRecruitment: SlideData = {
             <><strong>Offer Management:</strong> Generate and track offer letters</>,
         ],
     },
-    flowSteps: [
-        { text: 'Post Job' },
-        { text: 'Screen' },
-        { text: 'Interview' },
-        { text: 'Offer', active: true },
-    ],
+
     valuePoints: [
         'Eliminates manual recruitment tracking spreadsheets',
         'Faster time-to-hire with streamlined workflow',
@@ -87,12 +82,7 @@ export const slidePerformance: SlideData = {
             <><strong>Final Rating:</strong> Consolidated performance score</>,
         ],
     },
-    flowSteps: [
-        { text: 'Set Goals' },
-        { text: 'Mid-Review' },
-        { text: 'Self Assess' },
-        { text: 'Final Review', active: true },
-    ],
+
     valuePoints: [
         'Data-driven performance decisions',
         'Fair 360° feedback from multiple sources',
@@ -120,12 +110,7 @@ export const slideExit: SlideData = {
             <><strong>Document Handover:</strong> Experience letter and relieving documents</>,
         ],
     },
-    flowSteps: [
-        { text: 'Resign' },
-        { text: 'Interview' },
-        { text: 'Clearance' },
-        { text: 'F&F', active: true },
-    ],
+
     valuePoints: [
         'Ensures no pending dues or clearances missed',
         'Professional exit experience maintains employer brand',

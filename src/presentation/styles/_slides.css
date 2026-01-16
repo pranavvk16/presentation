@@ -299,19 +299,26 @@
 }
 
 .pres-info-section li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.625rem;
+    position: relative;
+    padding-left: 1.25rem;
     color: var(--en-text-secondary);
     font-size: 0.875rem;
-    line-height: 1.5;
+    line-height: 1.6;
+    display: block;
 }
 
 .pres-info-section li::before {
     content: '→';
     color: var(--en-primary);
     font-weight: 600;
-    flex-shrink: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.pres-info-section li strong {
+    color: var(--en-text-primary);
+    font-weight: 600;
 }
 
 .pres-value-box {

@@ -31,12 +31,7 @@ export const slideLeave: SlideData = {
         { icon: '🩺', title: 'Sick', description: 'Medical leave' },
         { icon: '⭐', title: 'Privilege', description: 'Earned leave' },
     ],
-    flowSteps: [
-        { text: 'Check Balance' },
-        { text: 'Apply' },
-        { text: 'Approval' },
-        { text: 'Deducted', active: true },
-    ],
+
     valuePoints: [
         'Self-service reduces HR queries by 70%',
         'Real-time balance updates after approvals',
