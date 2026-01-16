@@ -391,6 +391,32 @@
     max-height: 200px;
 }
 
+/* Plain Image (no browser frame) */
+.pres-plain-image-container {
+    background: var(--en-bg-surface);
+    border-radius: var(--en-radius-lg);
+    padding: 1rem;
+    box-shadow: var(--en-shadow-lg);
+    border: 1px solid var(--en-border);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--en-transition-slow);
+}
+
+.pres-plain-image-container:hover {
+    box-shadow: var(--en-shadow-xl);
+    transform: translateY(-2px);
+}
+
+.pres-plain-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: var(--en-radius-md);
+    display: block;
+    background: var(--en-bg-muted);
+}
+
 /* Color Legend for Calendar */
 .pres-color-legend {
     display: grid;

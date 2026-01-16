@@ -17,6 +17,7 @@ export interface SlideData {
         src: string;
         alt: string;
         url: string;
+        noBrowserFrame?: boolean;
     };
     talkingPoints: {
         title: string;
@@ -74,11 +75,17 @@ export function Slide({ data }: SlideProps) {
                                 url={screenshot.url}
                                 label={screenshot.label}
                             />
-                            <Screenshot
-                                src={screenshot2.src}
-                                alt={screenshot2.alt}
-                                url={screenshot2.url}
-                            />
+                            {screenshot2.noBrowserFrame ? (
+                                <div className="pres-plain-image-container">
+                                    <img src={screenshot2.src} alt={screenshot2.alt} className="pres-plain-image" />
+                                </div>
+                            ) : (
+                                <Screenshot
+                                    src={screenshot2.src}
+                                    alt={screenshot2.alt}
+                                    url={screenshot2.url}
+                                />
+                            )}
                         </div>
                     ) : (
                         <Screenshot

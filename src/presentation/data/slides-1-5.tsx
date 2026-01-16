@@ -86,33 +86,49 @@ export const slide3: SlideData = {
     ],
 };
 
-// Slide 5: Attendance Punch (Renumbered from 4)
+// Slide 5: Comprehensive Attendance Management (Consolidated)
 export const slide4: SlideData = {
     number: 5,
-    title: 'Daily Attendance - Punch In/Out',
-    subtitle: '/tenant/[slug]/dashboard/attendance — Core daily activity for every employee',
+    title: 'Attendance Management',
+    subtitle: 'Complete attendance tracking — Multiple modes, calendar view, and self-service corrections',
     screenshot: {
-        src: `${SCREENSHOT_BASE}/attendance_punch_card_1767985953071.png`,
-        alt: 'Attendance Punch Card',
-        url: 'www.employeenest.com/tenant/amazon/attendance',
+        src: `${SCREENSHOT_BASE}/attendance_calendar_1767985998130.png`,
+        alt: 'Attendance Calendar',
+        url: 'Calendar View',
+    },
+    screenshot2: {
+        src: `${SCREENSHOT_BASE}/mobile-app-essl.png`,
+        alt: 'Mobile App & ESSL Integration',
+        url: '',
+        noBrowserFrame: true,
     },
     talkingPoints: {
-        title: 'Key Talking Points',
+        title: 'Attendance Modes',
         items: [
-            <><strong>Real-Time Clock Display:</strong> Live clock showing current time and date</>,
-            <><strong>Attendance Mode Selection:</strong> Choose between Office, Remote, or Field work modes</>,
-            <><strong>One-Click Punch:</strong> Large, prominent button for quick punch in/out</>,
-            <><strong>Visual Time Cards:</strong> Clear display of punch-in and punch-out times</>,
+            <><strong>Web Clock In:</strong> Browser-based punch from any desktop</>,
+            <><strong>Mobile App:</strong> GPS-enabled attendance with geo-location tracking</>,
+            <><strong>ESSL Biometric:</strong> Integration with biometric machines for physical offices</>,
+            <><strong>Field Force:</strong> Route tracking, customer visit logging for sales teams</>,
+        ],
+    },
+    extraSection: {
+        title: 'Calendar & Regularization',
+        items: [
+            <><strong>Color-Coded Calendar:</strong> Visual monthly attendance history</>,
+            <><strong>Self-Service Corrections:</strong> Request regularization for missed punches</>,
+            <><strong>Manager Approval:</strong> Automated workflow for attendance corrections</>,
         ],
     },
     features: [
-        { icon: '🏢', title: 'Office', description: 'In-office attendance' },
-        { icon: '🏠', title: 'Remote', description: 'Work from home' },
-        { icon: '🚗', title: 'Field', description: 'On-site visits' },
+        { icon: '🌐', title: 'Web Clock', description: 'Browser-based' },
+        { icon: '📱', title: 'Mobile App', description: 'GPS tracking' },
+        { icon: '🔐', title: 'ESSL', description: 'Biometric' },
+        { icon: '🚗', title: 'Field Force', description: 'Route & visits' },
     ],
     valuePoints: [
-        'Simplified attendance tracking increases compliance',
-        'Flexibility for hybrid/remote work arrangements',
+        'Multiple modes ensure 100% attendance capture',
+        'Sales team tracking with customer visit logs',
+        'Self-service reduces HR workload',
     ],
     reverse: true,
 };
